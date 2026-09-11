@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="SatQuery AI — Interactive satellite imagery analysis powered by remote sensing AI."
+    >
+
+    <title>SatQuery AI | Remote Sensing Intelligence</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     NAVIGATION
+===================================================== -->
+
+<header class="navbar">
+
+    <div class="logo">
+
+        <div class="logo-icon">
+            🛰️
+        </div>
+
+        <div class="logo-text">
+
+            <h1>
+                SatQuery <span>AI</span>
+            </h1>
+
+            <p>
+                Remote Sensing Intelligence
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="system-status">
+
+        <span class="status-dot"></span>
+
+        <span>
+            System Ready
+        </span>
+
+    </div>
+
+</header>
+
+
+
+<!-- =====================================================
+     MAIN APPLICATION
+===================================================== -->
+
+<main class="container">
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="hero">
+
+    <div class="hero-badge">
+
+        <span>✦</span>
+
+        SATELLITE VISION AI
+
+    </div>
+
+
+    <h2>
+
+        Ask your satellite imagery
+
+        <span>
+            anything.
+        </span>
+
+    </h2>
+
+
+    <p class="hero-description">
+
+        Upload a satellite observation, ask a natural-language
+        question, and let SatQuery AI analyze the scene using
+        specialized remote-sensing models.
+
+    </p>
+
+
+    <!-- MODEL INDICATORS -->
+
+    <div class="model-indicators">
+
+        <div class="model-indicator">
+
+            <span class="indicator-icon">
+                ◈
+            </span>
+
+            YOLO-OBB
+
+        </div>
+
+
+        <div class="model-indicator">
+
+            <span class="indicator-icon">
+                ◉
+            </span>
+
+            Prithvi
+
+        </div>
+
+
+        <div class="model-indicator">
+
+            <span class="indicator-icon">
+                ◆
+            </span>
+
+            Multispectral AI
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     WORKSPACE
+===================================================== -->
+
+<section class="workspace">
+
+
+<!-- =====================================================
+     IMAGE UPLOAD
+===================================================== -->
+
+<div class="panel upload-panel">
+
+
+    <div class="panel-header">
+
+        <div>
+
+            <span class="step-number">
+                01
+            </span>
+
+            <div class="panel-title">
+
+                <h3>
+                    Satellite Image
+                </h3>
+
+                <p>
+                    Upload an observation
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <span class="panel-tag">
+            INPUT
+        </span>
+
+    </div>
+
+
+
+    <!-- UPLOAD AREA -->
+
+    <div
+        class="upload-area"
+        id="uploadArea"
+    >
+
+
+        <div class="upload-visual">
+
+            <div class="orbit orbit-one"></div>
+
+            <div class="orbit orbit-two"></div>
+
+            <div class="satellite-symbol">
+                🛰️
+            </div>
+
+        </div>
+
+
+        <h4>
+            Drop your satellite image here
+        </h4>
+
+
+        <p>
+            Drag & drop your file or choose one manually
+        </p>
+
+
+        <label
+            for="imageInput"
+            class="upload-button"
+        >
+
+            <span>
+                Choose Image
+            </span>
+
+            <span>
+                ↗
+            </span>
+
+        </label>
+
+
+        <input
+            type="file"
+            id="imageInput"
+            accept=".jpg,.jpeg,.png,.webp,.tif,.tiff,image/*"
+            hidden
+        >
+
+
+        <div class="supported-formats">
+
+            <span>JPG</span>
+            <span>PNG</span>
+            <span>WEBP</span>
+            <span>TIFF</span>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- IMAGE PREVIEW -->
+
+    <div
+        class="preview-container"
+        id="previewContainer"
+    >
+
+
+        <div class="preview-frame">
+
+            <img
+                id="imagePreview"
+                src=""
+                alt="Satellite image preview"
+            >
+
+
+            <!-- TIFF PLACEHOLDER -->
+
+            <div
+                class="tiff-preview"
+                id="tiffPreview"
+            >
+
+                <div class="tiff-icon">
+                    TIFF
+                </div>
+
+                <strong>
+                    Multispectral GeoTIFF
+                </strong>
+
+                <span>
+                    Ready for Prithvi analysis
+                </span>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- FILE INFORMATION -->
+
+        <div class="file-meta">
+
+
+            <div class="file-details">
+
+                <strong id="selectedFileName">
+                    Image selected
+                </strong>
+
+                <span id="selectedFileType">
+                    Ready for analysis
+                </span>
+
+            </div>
+
+
+            <button
+                id="removeImage"
+                type="button"
+            >
+
+                Remove
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     QUERY
+===================================================== -->
+
+<div class="panel query-panel">
+
+
+    <div class="panel-header">
+
+        <div>
+
+            <span class="step-number">
+                02
+            </span>
+
+            <div class="panel-title">
+
+                <h3>
+                    Natural Language Query
+                </h3>
+
+                <p>
+                    Tell the AI what to analyze
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <span class="panel-tag">
+            QUERY
+        </span>
+
+    </div>
+
+
+
+    <div class="query-content">
+
+
+        <label for="queryInput">
+
+            What would you like to know?
+
+        </label>
+
+
+        <div class="query-box">
+
+            <textarea
+                id="queryInput"
+                placeholder="e.g. Detect burn scars in this image..."
+            ></textarea>
+
+            <span class="query-cursor">
+                _
+            </span>
+
+        </div>
+
+
+
+        <!-- QUICK QUERIES -->
+
+        <div class="suggestions">
+
+            <div class="suggestion-heading">
+
+                <span>
+                    QUICK QUERIES
+                </span>
+
+                <span>
+                    AI ROUTING
+                </span>
+
+            </div>
+
+
+            <button
+                class="suggestion"
+                type="button"
+            >
+
+                <span class="suggestion-icon">
+                    ◇
+                </span>
+
+                Find objects in this satellite image
+
+            </button>
+
+
+            <button
+                class="suggestion"
+                type="button"
+            >
+
+                <span class="suggestion-icon">
+                    ◇
+                </span>
+
+                Detect burn scars in this image
+
+            </button>
+
+
+            <button
+                class="suggestion"
+                type="button"
+            >
+
+                <span class="suggestion-icon">
+                    ◇
+                </span>
+
+                Detect vehicles and infrastructure
+
+            </button>
+
+        </div>
+
+
+
+        <!-- ANALYZE -->
+
+        <button
+            class="analyze-button"
+            id="analyzeButton"
+            type="button"
+        >
+
+            <span>
+                Analyze Image
+            </span>
+
+            <span class="button-arrow">
+                ↗
+            </span>
+
+        </button>
+
+
+
+        <div class="pipeline-status">
+
+            <span class="pipeline-dot"></span>
+
+            <span>
+                Specialist model routing enabled
+            </span>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     RESULTS
+===================================================== -->
+
+<section class="results panel">
+
+
+    <div class="panel-header">
+
+
+        <div>
+
+            <span class="step-number">
+                03
+            </span>
+
+            <div class="panel-title">
+
+                <h3>
+                    SatQuery Analysis
+                </h3>
+
+                <p>
+                    Model output and evidence
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <span
+            class="analysis-status"
+            id="analysisStatus"
+        >
+            WAITING
+        </span>
+
+    </div>
+
+
+
+    <div class="result-content">
+
+
+        <!-- RESULT VISUALIZATION -->
+
+        <div
+            class="result-image"
+            id="resultImage"
+        >
+
+
+            <div
+                class="placeholder"
+                id="resultPlaceholder"
+            >
+
+                <div class="radar">
+
+                    <div class="radar-ring ring-one"></div>
+
+                    <div class="radar-ring ring-two"></div>
+
+                    <div class="radar-sweep"></div>
+
+                    <span>
+                        ◉
+                    </span>
+
+                </div>
+
+
+                <strong>
+                    Analysis visualization
+                </strong>
+
+
+                <p>
+                    Model output will appear here
+                </p>
+
+            </div>
+
+
+            <img
+                id="resultImagePreview"
+                src=""
+                alt="SatQuery AI analysis result"
+            >
+
+        </div>
+
+
+
+        <!-- RESULT INFORMATION -->
+
+        <div class="result-info">
+
+
+            <!-- TASK -->
+
+            <div class="result-item">
+
+                <span class="result-label">
+                    TASK
+                </span>
+
+                <strong id="taskResult">
+                    —
+                </strong>
+
+            </div>
+
+
+
+            <!-- ANSWER -->
+
+            <div class="result-item answer-item">
+
+                <span class="result-label">
+                    ANSWER
+                </span>
+
+                <p id="answerResult">
+
+                    Upload an image and ask a question
+                    to begin analysis.
+
+                </p>
+
+            </div>
+
+
+
+            <!-- METRICS -->
+
+            <div class="metric-grid">
+
+
+                <div class="result-item">
+
+                    <span class="result-label">
+                        CONFIDENCE
+                    </span>
+
+                    <strong id="confidenceResult">
+                        —
+                    </strong>
+
+                </div>
+
+
+                <div class="result-item">
+
+                    <span class="result-label">
+                        ENGINE
+                    </span>
+
+                    <strong id="engineResult">
+                        —
+                    </strong>
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <div class="footer-inner">
+
+        <span class="footer-brand">
+            🛰️ SatQuery AI
+        </span>
+
+        <span>
+            Remote Sensing Intelligence
+        </span>
+
+        <span class="footer-divider">
+            ·
+        </span>
+
+        <span>
+            Single Observation Analysis
+        </span>
+
+    </div>
+
+</footer>
+
+
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
